@@ -1,34 +1,22 @@
 # indipyconsole
 
-You may have Python programs implementing some form of data collection or control and wish to remotely operate such an instrument.
+This indipyconsole package provides a (linux only) terminal client, which connects to an INDI server, allowing you to view and control your instrument from a terminal session.
 
-An associated package 'indipydriver' can be used to take your data, organise it into a data structure defined by the INDI protocol, and serve it on a port.
-
-This indipyconsole package provides a terminal client, which connects to the port, allowing you to view and control your instrument from a terminal session.
-
-A further package indipyterm is also available, by the same author, which you may prefer.
-
-indipyterm can run on other OS's apart from Linux, and gives a more attractive terminal output, however it depends on third party libraries.
-
-indipyconsole only depends on indipyclient - which provides the communication methods. It uses the Python standard library curses package, which is only available on Linux.
-
-The main purpose of indipyconsole is to provide an indipendent client, in case the third party packages used by indipyterm break. It also provides logging capabilities to save communications data to a logfile. The two clients can both connect to an INDI server to compare output.
-
-indipyconsole can be installed from Pypi with:
-
-pip install indipyconsole
-
-or if you use uv, it can be loaded and run with:
-
-uvx indipyconsole
-
-indipydriver and indipyconsole communicate with the INDI protocol.
+INDI defines a protocol for the remote control of instruments.
 
 INDI - Instrument Neutral Distributed Interface.
 
 See https://en.wikipedia.org/wiki/Instrument_Neutral_Distributed_Interface
 
 The INDI protocol defines the format of the data sent, such as light, number, text, switch or BLOB (Binary Large Object). The client is general purpose, taking the format of switches, numbers etc., from the protocol.
+
+indipyconsole can be installed from Pypi:
+
+https://pypi.org/project/indipyconsole
+
+Or if you use uv, it can be loaded and run with:
+
+uvx indipyconsole
 
 The client can be run from a virtual environment with
 
@@ -63,30 +51,34 @@ The package help is:
     loglevel:4 As 1 plus xml vectors and all contents
 
 
-If installed from Pypi, then the dependecy indipyclient will automatically be pulled and installed.
+This terminal should work with any INDI service, however associated packages by the same author are:
 
-The indipydriver package which can be used to create instrument control, and serve the INDI protocol is available at:
+## indipyserver
 
-https://pypi.org/project/indipydriver
+https://github.com/bernie-skipole/indipyserver
+
+https://pypi.org/project/indipyserver
+
+https://indipyserver.readthedocs.io
+
+## indipydriver
 
 https://github.com/bernie-skipole/indipydriver
 
+https://pypi.org/project/indipydriver
+
 https://indipydriver.readthedocs.io
 
-With example driver scripts at:
+## indipyterm
 
-https://github.com/bernie-skipole/inditest
+A further package indipyterm is also available, by the same author, which you may prefer.
 
-The indipyterm package is available at:
+indipyterm can run on other OS's apart from Linux, and gives a more attractive terminal output, however it depends on third party libraries.
 
-https://pypi.org/project/indipyterm
+indipyconsole uses the Python standard library curses package, which is only available on Linux, otherwise it only depends on indipyclient - which provides the communication methods, this is automatically installed from Pypi.
+
+The main purpose of indipyconsole is to provide an indipendent client, in case the third party packages used by indipyterm break. It also provides logging capabilities to save communications data to a logfile. The two clients can both connect to an INDI server to compare output.
 
 https://github.com/bernie-skipole/indipyterm
 
-The indipyclient package contains classes which may be useful if you want to create your own client or client script:
-
-https://pypi.org/project/indipyclient
-
-https://github.com/bernie-skipole/indipyclient
-
-https://indipyclient.readthedocs.io
+https://pypi.org/project/indipyterm

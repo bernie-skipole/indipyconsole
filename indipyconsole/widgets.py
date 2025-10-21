@@ -5,8 +5,6 @@ import curses.ascii
 
 from pathlib import Path
 
-from decimal import Decimal
-
 from indipyclient import getfloat
 
 logger = logging.getLogger(__name__)
@@ -964,17 +962,15 @@ class NumberMember(BaseMember):
             return
         # check step, and round newfloat to nearest step value
         stepvalue = getfloat(self.member.step)
-        minvalue = getfloat(self.member.min)
         if stepvalue:
-            stepvalue = Decimal(str(stepvalue))
-            difference = newfloat - minvalue
-            newfloat = minvalue + float(int(Decimal(str(difference)) / stepvalue) * stepvalue)
-        # check not less than minimum
-        if newfloat < minvalue:
-            # reset self._newvalue to be the minimum, and accept this
-            self._newvalue = self.member.getformattedstring(minvalue)
-            return
+            newfloat = round(newfloat / stepvalue) * stepvalue
         if self.member.max != self.member.min:
+            # check not less than minimum
+            minvalue = getfloat(self.member.min)
+            if newfloat < minvalue:
+                # reset self._newvalue to be the minimum, and accept this
+                self._newvalue = self.member.getformattedstring(minvalue)
+                return
             maxvalue = getfloat(self.member.max)
             if newfloat > maxvalue:
                 # reset self._newvalue to be the maximum, and accept this
