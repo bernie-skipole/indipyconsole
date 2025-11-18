@@ -22,7 +22,7 @@ The client can be run from a virtual environment with
 
 indipyconsole [options]
 
-or with
+Note, this package has no dependencies other than the Python standard library and if the source files are copied to your machine, it can be run without a virtual environment with
 
 python3 -m indipyconsole [options]
 
@@ -69,15 +69,21 @@ https://pypi.org/project/indipydriver
 
 https://indipydriver.readthedocs.io
 
+## indipyweb
+
+https://github.com/bernie-skipole/indipyweb
+
+https://pypi.org/project/indipyweb
+
 ## indipyterm
 
 A further package indipyterm is also available, by the same author, which you may prefer.
 
 indipyterm can run on other OS's apart from Linux, and gives a more attractive terminal output, however it depends on third party libraries.
 
-indipyconsole uses the Python standard library curses package, which is only available on Linux, otherwise it only depends on indipyclient - which provides the communication methods, this is automatically installed from Pypi.
+indipyconsole uses the Python standard library curses package, which is only available on Linux.
 
-The main purpose of indipyconsole is to provide an indipendent client, in case the third party packages used by indipyterm break. It also provides logging capabilities to save communications data to a logfile. The two clients can both connect to an INDI server to compare output.
+The main purpose of indipyconsole is to provide an indipendent client, without dependencies.
 
 https://github.com/bernie-skipole/indipyterm
 

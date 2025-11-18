@@ -1,7 +1,7 @@
 
 import asyncio, curses, pathlib
 
-import indipyclient
+from . import indipyclient
 
 from . import widgets
 

@@ -1,7 +1,7 @@
 
 import asyncio, sys, curses, logging
 
-from indipyclient import IPyClient, delProperty, VectorTimeOut
+from .indipyclient import IPyClient, delProperty, VectorTimeOut
 
 from . import windows
 

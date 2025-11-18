@@ -3,7 +3,7 @@
 
 import curses
 
-import indipyclient
+from . import indipyclient
 
 from . import widgets
 

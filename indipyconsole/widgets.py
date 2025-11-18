@@ -5,7 +5,7 @@ import curses.ascii
 
 from pathlib import Path
 
-from indipyclient import getfloat
+from .indipyclient import getfloat
 
 logger = logging.getLogger(__name__)
 

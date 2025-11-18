@@ -4,7 +4,7 @@ from .consoleclient import ConsoleClient
 
 __all__ = ["ConsoleClient"]
 
-version = "0.0.2"
+version = "0.0.3"
 
 if sys.version_info < (3, 10):
     raise ImportError('indipyconsole requires Python >= 3.10')
